@@ -20,20 +20,6 @@ void setFCMData(
   }
 }
 
-void createDefaultPreferences(FirebaseFirestore db, User user) async {
-  DocumentSnapshot snapshot =
-      await db.collection('preferences').doc(user.uid).get();
-
-  if (!snapshot.exists) {
-    snapshot.reference.set({
-      'start':
-          DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
-      'height': 66,
-      'sex': 'male'
-    });
-  }
-}
-
 void updateUserData(FirebaseFirestore db, User user) async {
   DocumentReference ref = db.collection('users').doc(user.uid);
 

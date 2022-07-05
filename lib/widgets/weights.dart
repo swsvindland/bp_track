@@ -2,7 +2,7 @@ import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/weight.dart';
+import '../models/blood_pressure.dart';
 
 class Weights extends StatelessWidget {
   const Weights({Key? key}) : super(key: key);
@@ -34,28 +34,28 @@ class Weights extends StatelessWidget {
     );
   }
 
-  static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(
+  static List<Series<TimeSeriesBloodPressure, DateTime>> _createSampleData(
       List<BloodPressure> weights, BuildContext context) {
     final data =
-        weights.map((e) => TimeSeriesWeight(e.date, e.systolic, e.diastolic)).toList();
+        weights.map((e) => TimeSeriesBloodPressure(e.date, e.systolic, e.diastolic)).toList();
 
     data.sort((a, b) {
       return a.time.compareTo(b.time);
     });
 
     return [
-      Series<TimeSeriesWeight, DateTime>(
+      Series<TimeSeriesBloodPressure, DateTime>(
         id: 'Systolic',
         colorFn: (_, __) => MaterialPalette.blue.shadeDefault,
-        domainFn: (TimeSeriesWeight sales, _) => sales.time,
-        measureFn: (TimeSeriesWeight sales, _) => sales.systolic,
+        domainFn: (TimeSeriesBloodPressure sales, _) => sales.time,
+        measureFn: (TimeSeriesBloodPressure sales, _) => sales.systolic,
         data: data,
       ),
-      Series<TimeSeriesWeight, DateTime>(
+      Series<TimeSeriesBloodPressure, DateTime>(
         id: 'Diastolic',
         colorFn: (_, __) => MaterialPalette.green.shadeDefault,
-        domainFn: (TimeSeriesWeight sales, _) => sales.time,
-        measureFn: (TimeSeriesWeight sales, _) => sales.diastolic,
+        domainFn: (TimeSeriesBloodPressure sales, _) => sales.time,
+        measureFn: (TimeSeriesBloodPressure sales, _) => sales.diastolic,
         data: data,
       ),
     ];
@@ -63,10 +63,10 @@ class Weights extends StatelessWidget {
 }
 
 /// Sample time series data type.
-class TimeSeriesWeight {
+class TimeSeriesBloodPressure {
   final DateTime time;
   final int systolic;
   final int diastolic;
 
-  TimeSeriesWeight(this.time, this.systolic, this.diastolic);
+  TimeSeriesBloodPressure(this.time, this.systolic, this.diastolic);
 }

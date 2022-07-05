@@ -20,19 +20,4 @@ class DatabaseService {
         .doc()
         .set({"uid": id, "date": DateTime.now(), "systolic": systolic, 'diastolic': diastolic});
   }
-
-  Stream<Preferences> streamPreferences(String id) {
-    return _db
-        .collection('preferences')
-        .doc(id)
-        .snapshots()
-        .map((snap) => Preferences.fromMap(snap.data()!));
-  }
-
-  Future<void> updatePreferences(String id, Preferences preferences) {
-    return _db
-        .collection('preferences')
-        .doc(id)
-        .set(Preferences.toMap(preferences));
-  }
 }

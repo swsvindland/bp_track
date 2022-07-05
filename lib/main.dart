@@ -80,7 +80,7 @@ class App extends StatelessWidget {
           '/': (context) => const SplashScreenPage(),
           '/login': (context) => const LoginPage(),
           '/home': (context) => HomePage(),
-          '/weigh-in': (context) => const WeighIn(),
+          '/weigh-in': (context) => const CheckIn(),
           '/about': (context) => const AboutPage(),
           '/settings': (context) => const SettingsPage()
         },

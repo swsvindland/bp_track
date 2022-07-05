@@ -49,7 +49,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         const Duration(milliseconds: 500),
         () {
           updateUserData(_db, currentUser);
-          createDefaultPreferences(_db, currentUser);
           setFCMData(_db, _fcm, currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(
               '/home', (Route<dynamic> route) => false);

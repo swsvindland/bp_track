@@ -79,32 +79,34 @@ class HomePage extends StatelessWidget {
             initialData: const [],
             value: db.streamWeighIns(user!.uid),
           ),
-          StreamProvider<Preferences>.value(
-            initialData: Preferences.empty(),
-            value: db.streamPreferences(user.uid),
-          ),
         ],
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsets.all(8),
-                child: Card(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: SizedBox(
+            width: 600,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const <Widget>[
+                Expanded(
+                  flex: 3,
                   child: Padding(
-                    padding: EdgeInsets.all(4),
-                    child: Weights(),
+                    padding: EdgeInsets.all(8),
+                    child: Card(
+                      child: Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Weights(),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Expanded(
+                  flex: 5,
+                  child: CheckInList(),
+                ),
+              ],
             ),
-            Expanded(
-              flex: 5,
-              child: CheckInList(),
-            ),
-          ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(

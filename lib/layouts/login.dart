@@ -58,7 +58,6 @@ class _LoginPageState extends State<LoginPage> {
                         signInWithGoogle().then((User? user) {
                           if (user != null) {
                             updateUserData(_db, user);
-                            createDefaultPreferences(_db, user);
                             setFCMData(_db, _fcm, user);
                             navigatorKey.currentState!
                                 .pushNamedAndRemoveUntil('/home',
@@ -92,7 +91,6 @@ class _LoginPageState extends State<LoginPage> {
                         signInWithApple().then((User? user) {
                           if (user != null) {
                             updateUserData(_db, user);
-                            createDefaultPreferences(_db, user);
                             setFCMData(_db, _fcm, user);
                             navigatorKey.currentState!
                                 .pushNamedAndRemoveUntil(
@@ -129,7 +127,6 @@ class _LoginPageState extends State<LoginPage> {
                           signInAnon().then((User? user) {
                             if (user != null) {
                               updateUserData(_db, user);
-                              createDefaultPreferences(_db, user);
                               setFCMData(_db, _fcm, user);
                               navigatorKey.currentState!
                                   .pushNamedAndRemoveUntil('/home',

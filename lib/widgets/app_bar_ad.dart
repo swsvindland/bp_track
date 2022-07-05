@@ -49,7 +49,7 @@ class _AppBarAdState extends State<AppBarAd> {
   @override
   Widget build(BuildContext context) {
     if (_bannerAd == null || !_isBannerAdReady) {
-      return Text(AppLocalizations.of(context)!.bodyTrack,
+      return Text(AppLocalizations.of(context)!.bpTrack,
           style: const TextStyle(color: Colors.white));
     }
 

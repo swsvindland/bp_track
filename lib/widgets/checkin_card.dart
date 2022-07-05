@@ -1,6 +1,7 @@
 import 'package:bp_track/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CheckInCard extends StatelessWidget {
   const CheckInCard({Key? key, required this.data}) : super(key: key);
@@ -23,8 +24,8 @@ class CheckInCard extends StatelessWidget {
             const Divider(),
             Column(
               children: [
-                Text('Systolic: ${data.systolic}\t\t\t'),
-                Text('Diastolic: ${data.diastolic}\t\t\t'),
+                Text('${AppLocalizations.of(context)!.systolic}: ${data.systolic}\t\t\t'),
+                Text('${AppLocalizations.of(context)!.diastolic}: ${data.diastolic}\t\t\t'),
               ],
             ),
           ],

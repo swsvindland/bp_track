@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>718751552748-d5eouhavqmlbe1glea6vcieaig2mj1i5.apps.googleusercontent.com</string>
+	<string>346843181874-46mcop9vv562he1rrrp0b4u86tnqoqii.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.718751552748-d5eouhavqmlbe1glea6vcieaig2mj1i5</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>718751552748-g7jjoui28ecfok2lehauiecp2n43c4bk.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.346843181874-46mcop9vv562he1rrrp0b4u86tnqoqii</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDX8ZHKbTDNDSv8mD4SlwCWM05iDNKaPw8</string>
+	<string>AIzaSyDJ4KoJQIj1GkC-g5hicyf0K9lBkjTM3_E</string>
 	<key>GCM_SENDER_ID</key>
-	<string>718751552748</string>
+	<string>346843181874</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.svindland.bodytrack</string>
+	<string>com.svindland.bptrack</string>
 	<key>PROJECT_ID</key>
-	<string>bodytrack-4805f</string>
+	<string>bptrack-63405</string>
 	<key>STORAGE_BUCKET</key>
-	<string>bodytrack-4805f.appspot.com</string>
+	<string>bptrack-63405.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:718751552748:ios:1e88a4f239a688927c41c9</string>
+	<string>1:346843181874:ios:12ba361e9624ad79cc9d2b</string>
 </dict>
 </plist>

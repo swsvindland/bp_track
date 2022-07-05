@@ -1,5 +1,5 @@
 {
-    "bodyTrack": "BodyTrack",
+    "bodyTrack": "BloodPressureTrack",
     "male": "Male",
     "female": "Female",
     "height": "Height",

@@ -13,7 +13,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all<Size>(const Size(300, 35)),
+        fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
         foregroundColor: MaterialStateProperty.all<Color>(
             variant == 'secondary' ? Colors.white : Colors.black),
         backgroundColor: MaterialStateProperty.all<Color>(

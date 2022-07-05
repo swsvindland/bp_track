@@ -18,12 +18,14 @@ class WeighIn extends StatefulWidget {
 class _WeighInState extends State<WeighIn> {
   final db = DatabaseService();
   final _formKey = GlobalKey<FormState>();
-  final weightController = TextEditingController();
+  final systolicController = TextEditingController();
+  final diastolicController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    weightController.dispose();
+    systolicController.dispose();
+    diastolicController.dispose();
     super.dispose();
   }
 
@@ -34,7 +36,7 @@ class _WeighInState extends State<WeighIn> {
     submit() async {
       if (user == null) return;
 
-      await db.addWeighIn(user.uid, double.parse(weightController.text));
+      await db.addWeighIn(user.uid, int.parse(systolicController.text), int.parse(diastolicController.text));
     }
 
     return Scaffold(
@@ -60,8 +62,12 @@ class _WeighInState extends State<WeighIn> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Input(
-                    label: 'Weight',
-                    controller: weightController,
+                    label: 'Systolic',
+                    controller: systolicController,
+                    validator: checkInValidator),
+                Input(
+                    label: 'Diastolic',
+                    controller: diastolicController,
                     validator: checkInValidator),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),

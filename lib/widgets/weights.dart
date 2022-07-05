@@ -9,7 +9,7 @@ class Weights extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var weights = Provider.of<Iterable<Weight>>(context).toList();
+    var weights = Provider.of<Iterable<BloodPressure>>(context).toList();
 
     if (weights.isEmpty) {
       return const SizedBox(
@@ -35,33 +35,28 @@ class Weights extends StatelessWidget {
   }
 
   static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(
-      List<Weight> weights, BuildContext context) {
+      List<BloodPressure> weights, BuildContext context) {
     final data =
-        weights.map((e) => TimeSeriesWeight(e.date, e.weight)).toList();
+        weights.map((e) => TimeSeriesWeight(e.date, e.systolic, e.diastolic)).toList();
 
     data.sort((a, b) {
       return a.time.compareTo(b.time);
     });
 
-    final regression = [
-      TimeSeriesWeight(data.first.time, data.first.weight),
-      TimeSeriesWeight(data.last.time, data.last.weight)
-    ];
-
     return [
       Series<TimeSeriesWeight, DateTime>(
-        id: 'WeighIns',
-        colorFn: (_, __) => MaterialPalette.pink.makeShades(10)[7],
+        id: 'Systolic',
+        colorFn: (_, __) => MaterialPalette.blue.shadeDefault,
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
-        measureFn: (TimeSeriesWeight sales, _) => sales.weight,
+        measureFn: (TimeSeriesWeight sales, _) => sales.systolic,
         data: data,
       ),
       Series<TimeSeriesWeight, DateTime>(
-        id: 'Average',
-        colorFn: (_, __) => MaterialPalette.pink.shadeDefault,
+        id: 'Diastolic',
+        colorFn: (_, __) => MaterialPalette.green.shadeDefault,
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
-        measureFn: (TimeSeriesWeight sales, _) => sales.weight,
-        data: regression,
+        measureFn: (TimeSeriesWeight sales, _) => sales.diastolic,
+        data: data,
       ),
     ];
   }
@@ -70,7 +65,8 @@ class Weights extends StatelessWidget {
 /// Sample time series data type.
 class TimeSeriesWeight {
   final DateTime time;
-  final double weight;
+  final int systolic;
+  final int diastolic;
 
-  TimeSeriesWeight(this.time, this.weight);
+  TimeSeriesWeight(this.time, this.systolic, this.diastolic);
 }

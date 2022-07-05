@@ -54,17 +54,17 @@ class App extends StatelessWidget {
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorSchemeSeed: Colors.pink,
+          colorSchemeSeed: Colors.red,
           brightness: Brightness.light,
           useMaterial3: true,
-          backgroundColor: Colors.pink,
-          scaffoldBackgroundColor: Colors.pink,
+          backgroundColor: Colors.red,
+          scaffoldBackgroundColor: Colors.red,
             appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.pink,
+                backgroundColor: Colors.red,
                 foregroundColor: Colors.white),
         ),
         darkTheme: ThemeData(
-            colorSchemeSeed: Colors.pink,
+            colorSchemeSeed: Colors.red,
             brightness: Brightness.dark,
             useMaterial3: true,
             backgroundColor: Colors.black,
@@ -81,7 +81,6 @@ class App extends StatelessWidget {
           '/login': (context) => const LoginPage(),
           '/home': (context) => HomePage(),
           '/weigh-in': (context) => const WeighIn(),
-          '/check-in': (context) => const CheckIn(),
           '/about': (context) => const AboutPage(),
           '/settings': (context) => const SettingsPage()
         },

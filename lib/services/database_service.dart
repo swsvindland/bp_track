@@ -6,60 +6,19 @@ class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
-  Stream<Iterable<Weight>> streamWeighIns(String id) {
+  Stream<Iterable<BloodPressure>> streamWeighIns(String id) {
     return _db
-        .collection('weight')
+        .collection('bps')
         .where("uid", isEqualTo: id)
         .snapshots()
-        .map((event) => event.docs.map((e) => Weight.fromMap(e.data())));
+        .map((event) => event.docs.map((e) => BloodPressure.fromMap(e.data())));
   }
 
-  Future<void> addWeighIn(String id, double weight) {
+  Future<void> addWeighIn(String id, int systolic, int diastolic) {
     return _db
-        .collection('weight')
+        .collection('bps')
         .doc()
-        .set({"uid": id, "date": DateTime.now(), "weight": weight});
-  }
-
-  Future<void> addCheckIn(
-      String id,
-      double neck,
-      double shoulders,
-      double chest,
-      double leftBicep,
-      double rightBicep,
-      double navel,
-      double waist,
-      double hip,
-      double leftThigh,
-      double rightThigh,
-      double leftCalf,
-      double rightCalf) {
-    return _db.collection('checkIns').doc().set({
-      "uid": id,
-      "date": DateTime.now(),
-      "neck": neck,
-      "shoulders": shoulders,
-      "chest": chest,
-      "leftBicep": leftBicep,
-      "rightBicep": rightBicep,
-      "navel": navel,
-      "waist": waist,
-      "hip": hip,
-      "leftThigh": leftThigh,
-      "rightThigh": rightThigh,
-      "leftCalf": leftCalf,
-      "rightCalf": rightCalf
-    });
-  }
-
-  Stream<Iterable<CheckIn>> streamCheckIns(String id) {
-    return _db
-        .collection('checkIns')
-        .where("uid", isEqualTo: id)
-        .orderBy("date", descending: true)
-        .snapshots()
-        .map((event) => event.docs.map((e) => CheckIn.fromMap(e.data())));
+        .set({"uid": id, "date": DateTime.now(), "systolic": systolic, 'diastolic': diastolic});
   }
 
   Stream<Preferences> streamPreferences(String id) {

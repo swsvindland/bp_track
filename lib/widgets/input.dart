@@ -38,8 +38,7 @@ class Input extends StatelessWidget {
             border: const OutlineInputBorder(),
             labelText: label,
             labelStyle: TextStyle(color: color)),
-        keyboardType: TextInputType.numberWithOptions(
-            decimal: decimal ?? true),
+        keyboardType: TextInputType.number,
       ),
     );
   }

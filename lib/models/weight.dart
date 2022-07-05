@@ -1,21 +1,27 @@
-class Weight {
-  double weight;
+class BloodPressure {
+  String uid;
+  int systolic;
+  int diastolic;
   DateTime date;
 
-  Weight({required this.weight, required this.date});
+  BloodPressure({required this.uid, required this.systolic, required this.diastolic, required this.date});
 
-  factory Weight.fromMap(Map data) {
+  factory BloodPressure.fromMap(Map data) {
     data = data;
-    return Weight(
-      weight: data['weight'],
+    return BloodPressure(
+      uid: data['uid'],
+      systolic: data['systolic'],
+      diastolic: data['diastolic'],
       date: data['date'].toDate(),
     );
   }
 
-  static Map<String, dynamic> toMap(Weight data) {
+  static Map<String, dynamic> toMap(BloodPressure data) {
     data = data;
     return {
-      'weight': data.weight,
+      'uid': data.uid,
+      'systolic': data.systolic,
+      'diastolic': data.diastolic,
       'date': data.date,
     };
   }

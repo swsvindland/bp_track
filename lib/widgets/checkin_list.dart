@@ -9,7 +9,7 @@ class CheckInList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var checkIns = Provider.of<Iterable<CheckIn>>(context).toList();
+    var checkIns = Provider.of<Iterable<BloodPressure>>(context).toList();
 
     return ListView.builder(
       padding: const EdgeInsets.all(8),

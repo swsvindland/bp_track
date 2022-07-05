@@ -73,61 +73,44 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: StreamProvider<Iterable<Weight>>.value(
-        initialData: const [],
-        value: db.streamWeighIns(user!.uid),
-        child: StreamProvider<Preferences>.value(
-          initialData: Preferences.empty(),
-          value: db.streamPreferences(user.uid),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(4),
-                      child: Weights(),
-                    ),
+      body: MultiProvider(
+        providers: [
+          StreamProvider<Iterable<BloodPressure>>.value(
+            initialData: const [],
+            value: db.streamWeighIns(user!.uid),
+          ),
+          StreamProvider<Preferences>.value(
+            initialData: Preferences.empty(),
+            value: db.streamPreferences(user.uid),
+          ),
+        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const <Widget>[
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(4),
+                    child: Weights(),
                   ),
                 ),
               ),
-              Expanded(
-                flex: 5,
-                child: StreamProvider<Iterable<CheckIn>>.value(
-                  initialData: const [],
-                  value: db.streamCheckIns(user.uid),
-                  child: const CheckInList(),
-                ),
-              ),
-            ],
-          ),
+            ),
+            Expanded(
+              flex: 5,
+              child: CheckInList(),
+            ),
+          ],
         ),
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FloatingActionButton(
-            heroTag: "WeighIn",
-            onPressed: handleWeighIn,
-            child: const Icon(Icons.monitor_weight),
-          ),
-          const SizedBox(width: 16),
-          FloatingActionButton.extended(
-            heroTag: "CheckIn",
-            onPressed: handleCheckIn,
-            label: const Text('Check In'),
-            icon: const Icon(Icons.straighten),
-          ),
-        ],
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: handleWeighIn,
+        label: const Text('Check In'),
+        icon: const Icon(Icons.monitor_heart),
       ),
     );
   }

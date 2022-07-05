@@ -68,7 +68,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const <Widget>[
-              Icon(Icons.straighten, size: 96.0, color: Colors.white),
+              Icon(Icons.monitor_heart, size: 96.0, color: Colors.white),
               SizedBox(height: 75),
               CircularProgressIndicator(
                 backgroundColor: Colors.white,

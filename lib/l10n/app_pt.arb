@@ -1,0 +1,22 @@
+{
+  "@@locale": "pt",
+  "bpTrack": "BloodPressure Track",
+  "settings": "Definições",
+  "about": "Sobre",
+  "aboutPageCredits": "Projetado e Construído por",
+  "aboutPageVersion": "Versão",
+  "logOut": "Sair",
+  "googleSignIn": "Continuar com o Google",
+  "appleSignIn": "Continuar com a Apple",
+  "anonSignIn": "Continuar sem conta",
+  "checkIn": "Check-in",
+  "systolic": "Sistólica",
+  "diastolic": "diastólico",
+  "goBack": "Volte",
+  "formInputError": "Insira uma medida",
+  "submit": "Enviar",
+  "deleteAccount": "Deletar conta",
+  "deleteAccountConfirm": "Isso excluirá sua conta e todos os dados do usuário para sempre. Tem certeza?",
+  "delete": "Excluir",
+  "cancel": "Cancelar"
+}

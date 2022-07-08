@@ -1,0 +1,22 @@
+{
+  "@@locale": "zh",
+  "bpTrack": "血压追踪",
+  "settings": "设置",
+  "about": "关于",
+  "aboutPageCredits": "设计和建造者",
+  "aboutPageVersion": "版本",
+  "logOut": "登出",
+  "googleSignIn": "继续使用 Google",
+  "appleSignIn": "继续使用苹果",
+  "anonSignIn": "继续没有帐户",
+  "checkIn": "报到",
+  "systolic": "收缩压",
+  "diastolic": "舒张压",
+  "goBack": "回去",
+  "formInputError": "请输入测量值",
+  "submit": "提交",
+  "deleteAccount": "删除帐户",
+  "deleteAccountConfirm": "这将永远删除您的帐户和所有用户数据。你确定吗？",
+  "delete": "删除",
+  "cancel": "取消"
+}

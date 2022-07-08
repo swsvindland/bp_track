@@ -1,0 +1,22 @@
+{
+  "@@locale": "fr",
+  "bpTrack": "BloodPressureTrack",
+  "settings": "Réglages",
+  "about": "À propos de",
+  "aboutPageCredits": "Conçu et construit par",
+  "aboutPageVersion": "Version",
+  "logOut": "Se déconnecter",
+  "googleSignIn": "Continuer avec Google",
+  "appleSignIn": "Continuer avec Apple",
+  "anonSignIn": "Continuer sans compte",
+  "checkIn": "Enregistrement",
+  "systolic": "Systolique",
+  "diastolic": "diastolique",
+  "goBack": "Retourner",
+  "formInputError": "Veuillez entrer une mesure",
+  "submit": "Soumettre",
+  "deleteAccount": "Supprimer le compte",
+  "deleteAccountConfirm": "Cela supprimera définitivement votre compte et toutes les données utilisateur. Êtes-vous sûr?",
+  "delete": "Effacer",
+  "cancel": "Annuler"
+}

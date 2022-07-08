@@ -1,0 +1,22 @@
+{
+  "@@locale": "hi",
+  "bpTrack": "ब्लडप्रेशर ट्रैक",
+  "settings": "समायोजन",
+  "about": "के बारे में",
+  "aboutPageCredits": "द्वारा डिजाइन और निर्मित",
+  "aboutPageVersion": "संस्करण",
+  "logOut": "लॉग आउट",
+  "googleSignIn": "Google के साथ जारी रखें",
+  "appleSignIn": "Apple के साथ जारी रखें",
+  "anonSignIn": "खाते के बिना जारी रखें",
+  "checkIn": "चेक इन",
+  "systolic": "सिस्टोलिक",
+  "diastolic": "डायस्टोलिक",
+  "goBack": "वापस जाओ",
+  "formInputError": "कृपया माप दर्ज करें",
+  "submit": "प्रस्तुत करना",
+  "deleteAccount": "खाता हटा दो",
+  "deleteAccountConfirm": "यह आपके खाते और सभी उपयोगकर्ता डेटा को हमेशा के लिए हटा देगा। क्या आपको यकीन है?",
+  "delete": "मिटाना",
+  "cancel": "रद्द करना"
+}

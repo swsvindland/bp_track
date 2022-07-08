@@ -1,0 +1,22 @@
+{
+  "@@locale": "ja",
+  "bpTrack": "BloodPressureTrack",
+  "settings": "設定",
+  "about": "約",
+  "aboutPageCredits": "によって設計および構築された",
+  "aboutPageVersion": "バージョン",
+  "logOut": "ログアウト",
+  "googleSignIn": "Googleで続行",
+  "appleSignIn": "Appleを続ける",
+  "anonSignIn": "アカウントなしで続行",
+  "checkIn": "チェックイン",
+  "systolic": "収縮期",
+  "diastolic": "拡張期",
+  "goBack": "戻る",
+  "formInputError": "測定値を入力してください",
+  "submit": "送信",
+  "deleteAccount": "アカウントを削除する",
+  "deleteAccountConfirm": "これにより、アカウントとすべてのユーザーデータが完全に削除されます。本気ですか？",
+  "delete": "消去",
+  "cancel": "キャンセル"
+}

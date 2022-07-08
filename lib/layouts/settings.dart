@@ -1,9 +1,8 @@
 import 'package:bp_track/widgets/delete_account.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:bp_track/services/database_service.dart';
 import 'package:bp_track/utils/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class SettingsPage extends StatefulWidget {
@@ -18,11 +17,9 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<User?>(context);
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(AppLocalizations.of(context)!.settings),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bp_track/utils/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text('About'),
+        title: Text(AppLocalizations.of(context)!.about),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: Colors.white,
@@ -24,23 +25,23 @@ class AboutPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               Text(
-                'Designed and Built by',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                AppLocalizations.of(context)!.aboutPageCredits,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
               ),
-              Text(
+              const Text(
                 'Sam Svindland',
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 45,
               ),
               Text(
-                'Version',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                AppLocalizations.of(context)!.aboutPageVersion,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
               ),
-              Text(
+              const Text(
                 '1.0.0',
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),

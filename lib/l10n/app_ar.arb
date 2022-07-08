@@ -1,0 +1,22 @@
+{
+  "@@locale": "ar",
+  "bpTrack": "مسار ضغط الدم",
+  "settings": "إعدادات",
+  "about": "حول",
+  "aboutPageCredits": "صممه وبناؤه",
+  "aboutPageVersion": "إصدار",
+  "logOut": "تسجيل خروج",
+  "googleSignIn": "تواصل مع جوجل",
+  "appleSignIn": "تواصل مع أبل",
+  "anonSignIn": "تواصل بدون حساب",
+  "checkIn": "تحقق في",
+  "systolic": "الانقباضي",
+  "diastolic": "الانبساطي",
+  "goBack": "عُد",
+  "formInputError": "الرجاء إدخال قياس",
+  "submit": "يُقدِّم",
+  "deleteAccount": "حذف الحساب",
+  "deleteAccountConfirm": "سيؤدي هذا إلى حذف حسابك وجميع بيانات المستخدم إلى الأبد. هل أنت واثق؟",
+  "delete": "حذف",
+  "cancel": "يلغي"
+}

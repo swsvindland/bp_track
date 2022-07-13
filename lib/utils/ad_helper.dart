@@ -6,9 +6,9 @@ class AdHelper {
   static String get bannerAdUnitId {
     if (kDebugMode) {
       if (Platform.isAndroid) {
-        return 'ca-app-pub-3940256099942544/6300978111';
+        return 'ca-app-pub-7533750599105635/9922390114';
       } else if (Platform.isIOS) {
-        return 'ca-app-pub-3940256099942544/2934735716';
+        return 'ca-app-pub-7533750599105635/2738852905';
       } else {
         throw UnsupportedError('Unsupported platform');
       }

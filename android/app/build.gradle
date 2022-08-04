@@ -53,7 +53,7 @@ android {
     defaultConfig {
         applicationId "com.svindland.bptrack"
         minSdkVersion 21
-        targetSdkVersion flutter.compileSdkVersion
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

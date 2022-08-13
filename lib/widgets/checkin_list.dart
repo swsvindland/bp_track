@@ -10,6 +10,7 @@ class CheckInList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var checkIns = Provider.of<Iterable<BloodPressure>>(context).toList();
+    checkIns.sort((a, b) => b.date.compareTo(a.date));
 
     return ListView.builder(
       padding: const EdgeInsets.all(8),

@@ -1,3 +1,4 @@
+import 'package:bp_track/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +7,7 @@ import 'package:bp_track/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:os_detect/os_detect.dart" as platform;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'package:bp_track/utils/helper.dart';
-import 'package:bp_track/widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -42,106 +41,112 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Icon(Icons.monitor_heart, size: 96.0, color: Colors.white),
+                const Icon(Icons.monitor_heart,
+                    size: 96.0, color: secondary),
                 const SizedBox(height: 40),
                 loggingIn
                     ? const CircularProgressIndicator()
                     : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Button(
-                      onPressed: () {
-                        setState(() {
-                          loggingIn = true;
-                        });
-                        signInWithGoogle().then((User? user) {
-                          if (user != null) {
-                            updateUserData(_db, user);
-                            setFCMData(_db, _fcm, user);
-                            navigatorKey.currentState!
-                                .pushNamedAndRemoveUntil('/home',
-                                    (Route<dynamic> route) => false);
-                          }
-                        });
-                        setState(() {
-                          loggingIn = false;
-                        });
-                      },
-                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset('images/google-logo.png',
-                              width: 24, height: 24),
-                          const SizedBox(width: 8),
-                          Text(AppLocalizations.of(context)!.googleSignIn,
-                              style: const TextStyle(
-                                  fontSize: 16.0, color: Colors.black)),
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                loggingIn = true;
+                              });
+                              signInWithGoogle().then((User? user) {
+                                if (user != null) {
+                                  updateUserData(_db, user);
+                                  setFCMData(_db, _fcm, user);
+                                  navigatorKey.currentState!
+                                      .pushNamedAndRemoveUntil('/home',
+                                          (Route<dynamic> route) => false);
+                                }
+                              });
+                              setState(() {
+                                loggingIn = false;
+                              });
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset('images/google-logo.png',
+                                    width: 24, height: 24),
+                                const SizedBox(width: 8),
+                                Text(
+                                  AppLocalizations.of(context)!.googleSignIn,
+                                  style: const TextStyle(fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          platform.isIOS
+                              ? ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      loggingIn = true;
+                                    });
+                                    signInWithApple().then((User? user) {
+                                      if (user != null) {
+                                        updateUserData(_db, user);
+                                        setFCMData(_db, _fcm, user);
+                                        navigatorKey.currentState!
+                                            .pushNamedAndRemoveUntil(
+                                                '/home',
+                                                (Route<dynamic> route) =>
+                                                    false);
+                                      }
+                                    });
+                                    setState(() {
+                                      loggingIn = false;
+                                    });
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const Icon(Icons.apple),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        AppLocalizations.of(context)!
+                                            .appleSignIn,
+                                        style: const TextStyle(
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              : const SizedBox(),
+                          SizedBox(height: platform.isIOS ? 16 : 0),
+                          TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  loggingIn = true;
+                                });
+                                signInAnon().then((User? user) {
+                                  if (user != null) {
+                                    updateUserData(_db, user);
+                                    setFCMData(_db, _fcm, user);
+                                    navigatorKey.currentState!
+                                        .pushNamedAndRemoveUntil('/home',
+                                            (Route<dynamic> route) => false);
+                                  }
+                                });
+                                setState(() {
+                                  loggingIn = false;
+                                });
+                              },
+                              child: Text(
+                                  AppLocalizations.of(context)!.anonSignIn,
+                                  style: const TextStyle(
+                                      fontSize: 16.0, color: textPrimary))),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    platform.isIOS
-                        ? Button(
-                      onPressed: () {
-                        setState(() {
-                          loggingIn = true;
-                        });
-                        signInWithApple().then((User? user) {
-                          if (user != null) {
-                            updateUserData(_db, user);
-                            setFCMData(_db, _fcm, user);
-                            navigatorKey.currentState!
-                                .pushNamedAndRemoveUntil(
-                                '/home',
-                                    (Route<dynamic> route) =>
-                                false);
-                          }
-                        });
-                        setState(() {
-                          loggingIn = false;
-                        });
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.apple),
-                          const SizedBox(width: 8),
-                          Text(AppLocalizations.of(context)!.appleSignIn,
-                              style: const TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.black)),
-                        ],
-                      ),
-                    )
-                        : const SizedBox(),
-                    SizedBox(height: platform.isIOS ? 16 : 0),
-                    TextButton(
-                        onPressed: () {
-                          setState(() {
-                            loggingIn = true;
-                          });
-                          signInAnon().then((User? user) {
-                            if (user != null) {
-                              updateUserData(_db, user);
-                              setFCMData(_db, _fcm, user);
-                              navigatorKey.currentState!
-                                  .pushNamedAndRemoveUntil('/home',
-                                      (Route<dynamic> route) => false);
-                            }
-                          });
-                          setState(() {
-                            loggingIn = false;
-                          });
-                        },
-                        child: Text(AppLocalizations.of(context)!.anonSignIn,
-                            style: const TextStyle(
-                                fontSize: 16.0, color: Colors.white))),
-                  ],
-                ),
               ],
             ),
           ),

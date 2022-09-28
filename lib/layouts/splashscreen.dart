@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:bp_track/utils/colors.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -67,10 +68,10 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const <Widget>[
-              Icon(Icons.monitor_heart, size: 96.0, color: Colors.white),
+              Icon(Icons.monitor_heart, size: 96.0, color: secondary),
               SizedBox(height: 75),
               CircularProgressIndicator(
-                backgroundColor: Colors.white,
+                backgroundColor: secondary,
               )
             ],
           ),

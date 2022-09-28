@@ -1,3 +1,4 @@
+import 'package:bp_track/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -50,7 +51,7 @@ class _AppBarAdState extends State<AppBarAd> {
   Widget build(BuildContext context) {
     if (_bannerAd == null || !_isBannerAdReady) {
       return Text(AppLocalizations.of(context)!.bpTrack,
-          style: const TextStyle(color: Colors.white));
+          style: const TextStyle(color: textPrimary));
     }
 
     return SizedBox(

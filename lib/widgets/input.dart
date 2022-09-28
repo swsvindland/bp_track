@@ -1,3 +1,4 @@
+import 'package:bp_track/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Input extends StatelessWidget {
@@ -17,7 +18,7 @@ class Input extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = variant == null ? Colors.white : Colors.pink;
+    var color = variant == null ? secondary : ternary;
 
     return Padding(
       padding: const EdgeInsets.all(4),

@@ -1,8 +1,10 @@
+import 'package:bp_track/utils/colors.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:bp_track/layouts/layouts.dart';
 import 'package:bp_track/services/graph_animation_provider.dart';
@@ -58,24 +60,61 @@ class App extends StatelessWidget {
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorSchemeSeed: Colors.red,
-          brightness: Brightness.light,
-          useMaterial3: true,
-          backgroundColor: Colors.red,
-          scaffoldBackgroundColor: Colors.red,
+            colorSchemeSeed: primary,
+            brightness: Brightness.light,
+            textTheme: GoogleFonts.oswaldTextTheme(),
+            useMaterial3: true,
+            backgroundColor: background,
+            scaffoldBackgroundColor: background,
             appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.red,
-                foregroundColor: Colors.white),
+                backgroundColor: background, foregroundColor: textPrimary),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
+                backgroundColor: MaterialStateProperty.all<Color>(primary),
+                foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
+              ),
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
+              ),
+            ),
+            cardTheme: const CardTheme(
+                color: card
+            ),
+            listTileTheme: const ListTileThemeData(
+                textColor: textSecondary
+            ),
+            dialogTheme: const DialogTheme(
+                backgroundColor: card,
+                titleTextStyle: TextStyle(color: textPrimary),
+                contentTextStyle: TextStyle(color: textSecondary)
+            ),
+            popupMenuTheme: const PopupMenuThemeData(
+              color: card,
+              textStyle: TextStyle(color: textSecondary),
+            ),
         ),
         darkTheme: ThemeData(
-            colorSchemeSeed: Colors.red,
+            colorSchemeSeed: primary,
             brightness: Brightness.dark,
             useMaterial3: true,
+            textTheme: GoogleFonts.oswaldTextTheme(),
             backgroundColor: Colors.black,
             scaffoldBackgroundColor: Colors.black,
-          appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white),
+            appBarTheme: const AppBarTheme(
+                backgroundColor: Colors.black, foregroundColor: textPrimary),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
+                backgroundColor: MaterialStateProperty.all<Color>(primary),
+                foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
+              ),
+            ),
+            listTileTheme: const ListTileThemeData(
+                textColor: textSecondary
+            ),
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,

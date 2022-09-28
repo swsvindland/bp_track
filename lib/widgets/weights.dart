@@ -1,4 +1,5 @@
-import 'package:charts_flutter/flutter.dart';
+import 'package:bp_track/utils/colors.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,16 +26,16 @@ class Weights extends StatelessWidget {
       );
     }
 
-    return TimeSeriesChart(
+    return charts.TimeSeriesChart(
       _createSampleData(weights, context),
       animate: true,
-      primaryMeasureAxis: const NumericAxisSpec(
-        tickProviderSpec: BasicNumericTickProviderSpec(zeroBound: false),
+      primaryMeasureAxis: const charts.NumericAxisSpec(
+        tickProviderSpec: charts.BasicNumericTickProviderSpec(zeroBound: false),
       ),
     );
   }
 
-  static List<Series<TimeSeriesBloodPressure, DateTime>> _createSampleData(
+  static List<charts.Series<TimeSeriesBloodPressure, DateTime>> _createSampleData(
       List<BloodPressure> weights, BuildContext context) {
     final data =
         weights.map((e) => TimeSeriesBloodPressure(e.date, e.systolic, e.diastolic)).toList();
@@ -44,16 +45,16 @@ class Weights extends StatelessWidget {
     });
 
     return [
-      Series<TimeSeriesBloodPressure, DateTime>(
+      charts.Series<TimeSeriesBloodPressure, DateTime>(
         id: 'Systolic',
-        colorFn: (_, __) => MaterialPalette.blue.shadeDefault,
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(secondary),
         domainFn: (TimeSeriesBloodPressure sales, _) => sales.time,
         measureFn: (TimeSeriesBloodPressure sales, _) => sales.systolic,
         data: data,
       ),
-      Series<TimeSeriesBloodPressure, DateTime>(
+      charts.Series<TimeSeriesBloodPressure, DateTime>(
         id: 'Diastolic',
-        colorFn: (_, __) => MaterialPalette.green.shadeDefault,
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(ternary),
         domainFn: (TimeSeriesBloodPressure sales, _) => sales.time,
         measureFn: (TimeSeriesBloodPressure sales, _) => sales.diastolic,
         data: data,

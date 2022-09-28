@@ -1,12 +1,10 @@
 import 'dart:async';
 import 'package:bp_track/utils/colors.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:bp_track/utils/constants.dart';
 import 'package:bp_track/utils/helper.dart';
-import "package:os_detect/os_detect.dart" as platform;
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);
@@ -17,24 +15,11 @@ class SplashScreenPage extends StatefulWidget {
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
   late StreamSubscription iosSubscription;
 
   @override
   void initState() {
     super.initState();
-
-    if (platform.isIOS) {
-      _fcm.requestPermission(
-        alert: true,
-        announcement: false,
-        badge: true,
-        carPlay: false,
-        criticalAlert: false,
-        provisional: false,
-        sound: true,
-      );
-    }
 
     navigateUser();
   }
@@ -50,7 +35,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         const Duration(milliseconds: 500),
         () {
           updateUserData(_db, currentUser);
-          setFCMData(_db, _fcm, currentUser);
           navigatorKey.currentState!.pushNamedAndRemoveUntil(
               '/home', (Route<dynamic> route) => false);
         },

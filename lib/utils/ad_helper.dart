@@ -6,18 +6,18 @@ class AdHelper {
   static String get bannerAdUnitId {
     if (kDebugMode) {
       if (Platform.isAndroid) {
-        return 'ca-app-pub-7533750599105635/9922390114';
+        return 'ca-app-pub-3940256099942544/6300978111';
       } else if (Platform.isIOS) {
-        return 'ca-app-pub-7533750599105635/2738852905';
+        return 'ca-app-pub-3940256099942544/2934735716';
       } else {
         throw UnsupportedError('Unsupported platform');
       }
     }
 
     if (Platform.isAndroid) {
-      return 'ca-app-pub-7533750599105635/2441346766';
+      return 'ca-app-pub-7533750599105635/9922390114';
     } else if (Platform.isIOS) {
-      return 'ca-app-pub-7533750599105635/3179713363';
+      return 'ca-app-pub-7533750599105635/2738852905';
     } else {
       throw UnsupportedError('Unsupported platform');
     }

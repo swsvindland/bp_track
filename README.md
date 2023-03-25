@@ -1,6 +1,11 @@
-# bp_track
+# Blood Pressure Track
 
-A new Flutter project.
+A flutter app to track blood pressure.
+
+## App Stores
+
+ - [Google Play](https://play.google.com/store/apps/details?id=com.svindland.bptrack)
+ - [Apple App Store](https://apps.apple.com/us/app/bloodpressuretrack/id1634437298)
 
 ## Getting Started
 
@@ -18,5 +23,5 @@ samples, guidance on mobile development, and a full API reference.
 
 ## l10n
 ```
-flutter packages pub run arb_translator:translate --source_arb lib/l10n/app_en.arb --api_key key --language_codes es,pt,fr,de,it,zh,ko,ja,ar,hi  --output_file_name app_
+flutter packages pub run arb_translator:translate --source_arb lib/l10n/app_en.arb --api_key google_translate_key.txt --language_codes es,pt,fr,de,it,zh,ko,ja,ar,hi  --output_file_name app_
 ```

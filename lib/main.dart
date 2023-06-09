@@ -64,7 +64,6 @@ class App extends StatelessWidget {
             brightness: Brightness.light,
             textTheme: GoogleFonts.oswaldTextTheme(),
             useMaterial3: true,
-            backgroundColor: background,
             scaffoldBackgroundColor: background,
             appBarTheme: const AppBarTheme(
                 backgroundColor: background, foregroundColor: textPrimary),
@@ -101,7 +100,6 @@ class App extends StatelessWidget {
             brightness: Brightness.dark,
             useMaterial3: true,
             textTheme: GoogleFonts.oswaldTextTheme(),
-            backgroundColor: Colors.black,
             scaffoldBackgroundColor: Colors.black,
             appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.black, foregroundColor: textPrimary),

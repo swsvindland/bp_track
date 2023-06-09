@@ -81,14 +81,14 @@ class HomePage extends StatelessWidget {
             value: db.streamWeighIns(user!.uid),
           ),
         ],
-        child: Align(
+        child: const Align(
           alignment: Alignment.topCenter,
           child: SizedBox(
             width: 600,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const <Widget>[
+              children: <Widget>[
                 Expanded(
                   flex: 3,
                   child: Padding(

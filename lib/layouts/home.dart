@@ -6,13 +6,13 @@ import 'package:bp_track/services/database_service.dart';
 import 'package:bp_track/services/sign_in.dart';
 import 'package:bp_track/utils/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:bp_track/widgets/weights.dart';
+import 'package:bp_track/widgets/blood_pressure_chart.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/checkin_list.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({super.key});
 
   final db = DatabaseService();
 
@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                     child: Card(
                       child: Padding(
                         padding: EdgeInsets.all(4),
-                        child: Weights(),
+                        child: BloodPressureChart(),
                       ),
                     ),
                   ),

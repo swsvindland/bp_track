@@ -9,7 +9,7 @@ import '../utils/helper.dart';
 import '../widgets/input.dart';
 
 class CheckIn extends StatefulWidget {
-  const CheckIn({Key? key}) : super(key: key);
+  const CheckIn({super.key});
 
   @override
   State<CheckIn> createState() => _CheckInState();
@@ -46,7 +46,6 @@ class _CheckInState extends State<CheckIn> {
         title: Text(AppLocalizations.of(context)!.checkIn),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
           },

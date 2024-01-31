@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 
 import '../models/blood_pressure.dart';
 
-class Weights extends StatelessWidget {
-  const Weights({Key? key}) : super(key: key);
+class BloodPressureChart extends StatelessWidget {
+  const BloodPressureChart({super.key});
 
   @override
   Widget build(BuildContext context) {

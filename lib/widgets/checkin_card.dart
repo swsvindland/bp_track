@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../utils/colors.dart';
-
 class CheckInCard extends StatelessWidget {
   const CheckInCard({Key? key, required this.data}) : super(key: key);
   final BloodPressure data;
@@ -19,7 +17,7 @@ class CheckInCard extends StatelessWidget {
             DateFormat.MMMMd(Localizations.localeOf(context).languageCode)
                 .format(data.date),
             textAlign: TextAlign.left,
-            style: const TextStyle(fontSize: 20, color: textPrimary),
+            style: const TextStyle(fontSize: 20),
           ),
           subtitle: Column(
             mainAxisAlignment: MainAxisAlignment.center,

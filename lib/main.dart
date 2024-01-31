@@ -34,7 +34,7 @@ class App extends StatelessWidget {
             create: (_) => GraphAnimationProvider()),
       ],
       child: MaterialApp(
-        title: 'BodyTrack',
+        title: 'Blood Pressure Track',
         localizationsDelegates: const [
           AppLocalizations.delegate, // Add this line
           GlobalMaterialLocalizations.delegate,

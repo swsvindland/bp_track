@@ -1,7 +1,6 @@
 import 'package:bp_track/widgets/app_bar_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:bp_track/services/database_service.dart';
-import 'package:bp_track/services/sign_in.dart';
 import 'package:bp_track/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -35,27 +34,6 @@ class _HomeState extends State<HomePage>  {
       appBar: AppBar(
         title: const AppBarAd(),
         elevation: 0,
-        actions: <Widget>[
-          PopupMenuButton<Popup>(
-            onSelected: (Popup result) {
-              if (result == Popup.logOut) {
-                signOut();
-                navigatorKey.currentState!
-                    .pushNamedAndRemoveUntil('/login', (route) => false);
-              }
-            },
-            icon: const Icon(Icons.more_vert),
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<Popup>>[
-              const PopupMenuItem<Popup>(
-                value: Popup.logOut,
-                child: ListTile(
-                  leading: Icon(Icons.exit_to_app),
-                  title: Text('Log Out'),
-                ),
-              ),
-            ].toList(),
-          ),
-        ],
       ),
       body: currentPageIndex == 0
           ? Home()

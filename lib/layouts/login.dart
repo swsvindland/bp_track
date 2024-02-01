@@ -27,6 +27,54 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  handleSignInWithGoogle() {
+    setState(() {
+      loggingIn = true;
+    });
+    signInWithGoogle().then((User? user) {
+      if (user != null) {
+        updateUserData(_db, user);
+        navigatorKey.currentState!
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+      }
+    });
+    setState(() {
+      loggingIn = false;
+    });
+  }
+
+  handleSignInWithApple() {
+    setState(() {
+      loggingIn = true;
+    });
+    signInWithApple().then((User? user) {
+      if (user != null) {
+        updateUserData(_db, user);
+        navigatorKey.currentState!
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+      }
+    });
+    setState(() {
+      loggingIn = false;
+    });
+  }
+
+  handleSignInAnon() {
+    setState(() {
+      loggingIn = true;
+    });
+    signInAnon().then((User? user) {
+      if (user != null) {
+        updateUserData(_db, user);
+        navigatorKey.currentState!
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+      }
+    });
+    setState(() {
+      loggingIn = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +87,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Icon(Icons.monitor_heart,
-                    size: 96.0, color: secondary),
+                const Icon(Icons.monitor_heart, size: 96.0, color: secondary),
                 const SizedBox(height: 40),
                 loggingIn
                     ? const CircularProgressIndicator()
@@ -48,23 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                loggingIn = true;
-                              });
-                              signInWithGoogle().then((User? user) {
-                                if (user != null) {
-                                  updateUserData(_db, user);
-                                  navigatorKey.currentState!
-                                      .pushNamedAndRemoveUntil('/home',
-                                          (Route<dynamic> route) => false);
-                                }
-                              });
-                              setState(() {
-                                loggingIn = false;
-                              });
-                            },
+                          FilledButton(
+                            onPressed: handleSignInWithGoogle,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,25 +113,8 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(height: 16),
                           platform.isIOS
-                              ? ElevatedButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      loggingIn = true;
-                                    });
-                                    signInWithApple().then((User? user) {
-                                      if (user != null) {
-                                        updateUserData(_db, user);
-                                        navigatorKey.currentState!
-                                            .pushNamedAndRemoveUntil(
-                                                '/home',
-                                                (Route<dynamic> route) =>
-                                                    false);
-                                      }
-                                    });
-                                    setState(() {
-                                      loggingIn = false;
-                                    });
-                                  },
+                              ? FilledButton(
+                                  onPressed: handleSignInWithApple,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
@@ -120,26 +135,9 @@ class _LoginPageState extends State<LoginPage> {
                               : const SizedBox(),
                           SizedBox(height: platform.isIOS ? 16 : 0),
                           TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  loggingIn = true;
-                                });
-                                signInAnon().then((User? user) {
-                                  if (user != null) {
-                                    updateUserData(_db, user);
-                                    navigatorKey.currentState!
-                                        .pushNamedAndRemoveUntil('/home',
-                                            (Route<dynamic> route) => false);
-                                  }
-                                });
-                                setState(() {
-                                  loggingIn = false;
-                                });
-                              },
+                              onPressed: handleSignInAnon,
                               child: Text(
-                                  AppLocalizations.of(context)!.anonSignIn,
-                                  style: const TextStyle(
-                                      fontSize: 16.0, color: textPrimary))),
+                                  AppLocalizations.of(context)!.anonSignIn)),
                         ],
                       ),
               ],

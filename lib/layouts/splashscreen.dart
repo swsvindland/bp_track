@@ -7,7 +7,7 @@ import 'package:bp_track/utils/constants.dart';
 import 'package:bp_track/utils/helper.dart';
 
 class SplashScreenPage extends StatefulWidget {
-  const SplashScreenPage({Key? key}) : super(key: key);
+  const SplashScreenPage({super.key});
 
   @override
   State<SplashScreenPage> createState() => _SplashScreenPageState();

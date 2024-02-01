@@ -2,12 +2,11 @@ import 'package:bp_track/widgets/app_bar_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:bp_track/services/database_service.dart';
 import 'package:bp_track/utils/constants.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/all.dart';
+import '../widgets/check_in_form.dart';
 import '../widgets/home.dart';
 import '../widgets/settings.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +15,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomeState();
 }
 
-class _HomeState extends State<HomePage>  {
+class _HomeState extends State<HomePage> {
   int currentPageIndex = 0;
   final db = DatabaseService();
 
@@ -28,6 +27,15 @@ class _HomeState extends State<HomePage>  {
     navigatorKey.currentState!.pushNamed('/check-in');
   }
 
+  handleAction() {
+    showModalBottomSheet<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return const Padding(
+              padding: EdgeInsets.all(16), child: CheckInForm());
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,13 +43,16 @@ class _HomeState extends State<HomePage>  {
         title: const AppBarAd(),
         elevation: 0,
       ),
-      body: currentPageIndex == 0
-          ? Home()
-          : currentPageIndex == 1 ?
-              All()
-          : Settings(),
+      body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+        child: currentPageIndex == 0
+            ? Home()
+            : currentPageIndex == 1
+                ? All()
+                : Settings(),
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: handleWeighIn,
+        onPressed: handleAction,
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: NavigationBar(

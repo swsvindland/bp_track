@@ -71,7 +71,6 @@ class App extends StatelessWidget {
           '/': (context) => const SplashScreenPage(),
           '/login': (context) => const LoginPage(),
           '/home': (context) => const HomePage(),
-          '/weigh-in': (context) => const CheckIn(),
         },
       ),
     );

@@ -11,7 +11,6 @@ class Home extends StatelessWidget {
   Home({super.key});
   final db = DatabaseService();
 
-
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<User?>(context);
@@ -24,9 +23,7 @@ class Home extends StatelessWidget {
         ),
       ],
       child: const Align(
-        alignment: Alignment.topCenter,
-        child: SizedBox(
-          width: 600,
+          alignment: Alignment.topCenter,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,7 +47,6 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-      ),
     );
   }
 }

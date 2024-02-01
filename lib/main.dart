@@ -62,7 +62,7 @@ class App extends StatelessWidget {
         darkTheme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
               seedColor: primary, brightness: Brightness.dark),
-          textTheme: GoogleFonts.oswaldTextTheme(),
+          textTheme: GoogleFonts.oswaldTextTheme(ThemeData.dark().textTheme),
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,

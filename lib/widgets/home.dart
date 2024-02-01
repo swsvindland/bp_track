@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
       providers: [
         StreamProvider<Iterable<BloodPressure>>.value(
           initialData: const [],
-          value: db.streamWeighIns(user!.uid),
+          value: db.streamBloodPressures(user!.uid),
         ),
       ],
       child: const Align(

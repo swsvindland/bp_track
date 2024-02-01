@@ -34,3 +34,14 @@ String? checkInValidator(String? value) {
   }
   return null;
 }
+
+String? optionalCheckInIntValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return null;
+  }
+
+  if (!isInt(value)) {
+    return 'Please enter a valid number';
+  }
+  return null;
+}

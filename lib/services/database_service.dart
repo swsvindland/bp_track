@@ -6,7 +6,7 @@ class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
 
-  Stream<Iterable<BloodPressure>> streamWeighIns(String id) {
+  Stream<Iterable<BloodPressure>> streamBloodPressures(String id) {
     return _db
         .collection('bps')
         .where("uid", isEqualTo: id)
@@ -14,10 +14,14 @@ class DatabaseService {
         .map((event) => event.docs.map((e) => BloodPressure.fromMap(e.data())));
   }
 
-  Future<void> addWeighIn(String id, int systolic, int diastolic) {
-    return _db
-        .collection('bps')
-        .doc()
-        .set({"uid": id, "date": DateTime.now(), "systolic": systolic, 'diastolic': diastolic});
+  Future<void> addBloodPressure(
+      String id, int systolic, int diastolic, int? heartRate) {
+    return _db.collection('bps').doc().set({
+      "uid": id,
+      "date": DateTime.now(),
+      "systolic": systolic,
+      'diastolic': diastolic,
+      'heartRate': heartRate
+    });
   }
 }

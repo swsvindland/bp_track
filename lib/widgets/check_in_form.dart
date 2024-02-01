@@ -20,12 +20,14 @@ class _CheckInState extends State<CheckInForm> {
   final _formKey = GlobalKey<FormState>();
   final systolicController = TextEditingController();
   final diastolicController = TextEditingController();
+  final heartRateController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
     systolicController.dispose();
     diastolicController.dispose();
+    heartRateController.dispose();
     super.dispose();
   }
 
@@ -36,8 +38,11 @@ class _CheckInState extends State<CheckInForm> {
     submit() async {
       if (user == null) return;
 
-      await db.addWeighIn(user.uid, int.parse(systolicController.text),
-          int.parse(diastolicController.text));
+      await db.addBloodPressure(
+          user.uid,
+          int.parse(systolicController.text),
+          int.parse(diastolicController.text),
+          int.tryParse(heartRateController.text));
     }
 
     return Form(
@@ -54,17 +59,22 @@ class _CheckInState extends State<CheckInForm> {
               label: AppLocalizations.of(context)!.diastolic,
               controller: diastolicController,
               validator: checkInValidator),
+          Input(
+            label: AppLocalizations.of(context)!.heartRate,
+            controller: heartRateController,
+            validator: optionalCheckInIntValidator,
+          ),
           FilledButton(
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Saving...')),
-                  );
-                  await submit();
-                  navigatorKey.currentState!.pop();
-                }
-              },
-              child: Text(AppLocalizations.of(context)!.submit),
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(AppLocalizations.of(context)!.saving)),
+                );
+                await submit();
+                navigatorKey.currentState!.pop();
+              }
+            },
+            child: Text(AppLocalizations.of(context)!.submit),
           ),
         ],
       ),

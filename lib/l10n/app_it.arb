@@ -1,6 +1,6 @@
 {
   "@@locale": "it",
-  "bpTrack": "Blood Pressure Track",
+  "bpTrack": "Traccia della pressione sanguigna",
   "settings": "Impostazioni",
   "about": "Di",
   "aboutPageCredits": "Progettato e costruito da",
@@ -11,12 +11,14 @@
   "anonSignIn": "Continua senza account",
   "checkIn": "Registrare",
   "systolic": "Sistolico",
-  "diastolic": "Diastolica",
+  "diastolic": "Diastolico",
+  "heartRate": "Frequenza cardiaca",
   "goBack": "Torna indietro",
-  "formInputError": "Si prega di inserire una misura",
+  "formInputError": "Inserisci una misura",
   "submit": "Invia",
+  "saving": "Salvataggio...",
   "deleteAccount": "Eliminare l'account",
-  "deleteAccountConfirm": "Questo cancellerà il tuo account e tutti i dati utente per sempre. Sei sicuro?",
-  "delete": "Elimina",
+  "deleteAccountConfirm": "Ciò eliminerà per sempre il tuo account e tutti i dati utente. Sei sicuro?",
+  "delete": "Eliminare",
   "cancel": "Annulla"
 }

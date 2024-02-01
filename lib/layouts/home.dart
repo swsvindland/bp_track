@@ -23,7 +23,7 @@ class _HomeState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return const SizedBox(
-            height: 300,
+            height: 400,
             child: Padding(
               padding: EdgeInsets.all(16),
               child: CheckInForm(),

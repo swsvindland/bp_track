@@ -28,6 +28,10 @@ class CheckInCard extends StatelessWidget {
                   '${AppLocalizations.of(context)!.systolic}: ${data.systolic}\t\t\t'),
               Text(
                   '${AppLocalizations.of(context)!.diastolic}: ${data.diastolic}\t\t\t'),
+              data.heartRate == null
+                  ? const SizedBox()
+                  : Text(
+                      '${AppLocalizations.of(context)!.heartRate}: ${data.heartRate ?? '-'}\t\t\t'),
             ],
           ),
         ),

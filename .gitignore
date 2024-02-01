@@ -120,3 +120,4 @@ app.*.symbols
 
 # Secrets
 google_translate_key.txt
+/lib/firebase_options.dart

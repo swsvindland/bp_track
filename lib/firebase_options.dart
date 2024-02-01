@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '346843181874',
     projectId: 'bptrack-63405',
     storageBucket: 'bptrack-63405.appspot.com',
+    androidClientId: '346843181874-10a8an4t5c3asbccjo17m19um93hb3e5.apps.googleusercontent.com',
     iosClientId: '346843181874-46mcop9vv562he1rrrp0b4u86tnqoqii.apps.googleusercontent.com',
     iosBundleId: 'com.svindland.bptrack',
   );

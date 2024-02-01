@@ -47,14 +47,14 @@ class BloodPressureChart extends StatelessWidget {
     return [
       charts.Series<TimeSeriesBloodPressure, DateTime>(
         id: 'Systolic',
-        colorFn: (_, __) => charts.ColorUtil.fromDartColor(secondary),
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(primary),
         domainFn: (TimeSeriesBloodPressure sales, _) => sales.time,
         measureFn: (TimeSeriesBloodPressure sales, _) => sales.systolic,
         data: data,
       ),
       charts.Series<TimeSeriesBloodPressure, DateTime>(
         id: 'Diastolic',
-        colorFn: (_, __) => charts.ColorUtil.fromDartColor(ternary),
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(secondary),
         domainFn: (TimeSeriesBloodPressure sales, _) => sales.time,
         measureFn: (TimeSeriesBloodPressure sales, _) => sales.diastolic,
         data: data,

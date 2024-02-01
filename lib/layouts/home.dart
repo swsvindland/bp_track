@@ -1,7 +1,6 @@
 import 'package:bp_track/widgets/app_bar_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:bp_track/services/database_service.dart';
-import 'package:bp_track/utils/constants.dart';
 
 import '../widgets/all.dart';
 import '../widgets/check_in_form.dart';
@@ -19,20 +18,17 @@ class _HomeState extends State<HomePage> {
   int currentPageIndex = 0;
   final db = DatabaseService();
 
-  handleWeighIn() {
-    navigatorKey.currentState!.pushNamed('/weigh-in');
-  }
-
-  handleCheckIn() {
-    navigatorKey.currentState!.pushNamed('/check-in');
-  }
-
   handleAction() {
     showModalBottomSheet<void>(
         context: context,
         builder: (BuildContext context) {
-          return const Padding(
-              padding: EdgeInsets.all(16), child: CheckInForm());
+          return const SizedBox(
+            height: 300,
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: CheckInForm(),
+            ),
+          );
         });
   }
 

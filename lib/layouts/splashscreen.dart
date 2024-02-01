@@ -52,7 +52,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Icon(Icons.monitor_heart, size: 96.0, color: secondary),
+              Icon(Icons.monitor_heart, size: 96.0),
               SizedBox(height: 75),
               CircularProgressIndicator()
             ],

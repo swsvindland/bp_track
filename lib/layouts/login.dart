@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Icon(Icons.monitor_heart, size: 96.0, color: secondary),
+                const Icon(Icons.monitor_heart, size: 96.0),
                 const SizedBox(height: 40),
                 loggingIn
                     ? const CircularProgressIndicator()

@@ -54,9 +54,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             children: <Widget>[
               Icon(Icons.monitor_heart, size: 96.0, color: secondary),
               SizedBox(height: 75),
-              CircularProgressIndicator(
-                backgroundColor: secondary,
-              )
+              CircularProgressIndicator()
             ],
           ),
         ),

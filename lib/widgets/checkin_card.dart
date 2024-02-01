@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CheckInCard extends StatelessWidget {
-  const CheckInCard({Key? key, required this.data}) : super(key: key);
+  const CheckInCard({super.key, required this.data});
   final BloodPressure data;
 
   @override
@@ -23,6 +23,7 @@ class CheckInCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Divider(),
               Text(
                   '${AppLocalizations.of(context)!.systolic}: ${data.systolic}\t\t\t'),
               Text(

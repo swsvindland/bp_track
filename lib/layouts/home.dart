@@ -1,19 +1,24 @@
 import 'package:bp_track/widgets/app_bar_ad.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:bp_track/models/models.dart';
 import 'package:bp_track/services/database_service.dart';
 import 'package:bp_track/services/sign_in.dart';
 import 'package:bp_track/utils/constants.dart';
-import 'package:provider/provider.dart';
-import 'package:bp_track/widgets/blood_pressure_chart.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../widgets/checkin_list.dart';
+import '../widgets/all.dart';
+import '../widgets/home.dart';
+import '../widgets/settings.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
 
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomeState();
+}
+
+class _HomeState extends State<HomePage>  {
+  int currentPageIndex = 0;
   final db = DatabaseService();
 
   handleWeighIn() {
@@ -26,8 +31,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<User?>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const AppBarAd(),
@@ -35,12 +38,6 @@ class HomePage extends StatelessWidget {
         actions: <Widget>[
           PopupMenuButton<Popup>(
             onSelected: (Popup result) {
-              if (result == Popup.settings) {
-                navigatorKey.currentState!.pushNamed('/settings');
-              }
-              if (result == Popup.about) {
-                navigatorKey.currentState!.pushNamed('/about');
-              }
               if (result == Popup.logOut) {
                 signOut();
                 navigatorKey.currentState!
@@ -49,20 +46,6 @@ class HomePage extends StatelessWidget {
             },
             icon: const Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<Popup>>[
-              const PopupMenuItem<Popup>(
-                value: Popup.settings,
-                child: ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-              ),
-              const PopupMenuItem<Popup>(
-                value: Popup.about,
-                child: ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text('About'),
-                ),
-              ),
               const PopupMenuItem<Popup>(
                 value: Popup.logOut,
                 child: ListTile(
@@ -74,46 +57,38 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: MultiProvider(
-        providers: [
-          StreamProvider<Iterable<BloodPressure>>.value(
-            initialData: const [],
-            value: db.streamWeighIns(user!.uid),
-          ),
-        ],
-        child: const Align(
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            width: 600,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  flex: 3,
-                  child: Padding(
-                    padding: EdgeInsets.all(8),
-                    child: Card(
-                      child: Padding(
-                        padding: EdgeInsets.all(4),
-                        child: BloodPressureChart(),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: CheckInList(),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: currentPageIndex == 0
+          ? Home()
+          : currentPageIndex == 1 ?
+              All()
+          : Settings(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: handleWeighIn,
         label: Text(AppLocalizations.of(context)!.checkIn),
         icon: const Icon(Icons.monitor_heart),
+      ),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.insights),
+            label: 'All',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
       ),
     );
   }

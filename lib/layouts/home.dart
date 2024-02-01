@@ -40,10 +40,9 @@ class _HomeState extends State<HomePage>  {
           : currentPageIndex == 1 ?
               All()
           : Settings(),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton(
         onPressed: handleWeighIn,
-        label: Text(AppLocalizations.of(context)!.checkIn),
-        icon: const Icon(Icons.monitor_heart),
+        child: const Icon(Icons.add),
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
